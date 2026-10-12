@@ -61,6 +61,30 @@
     background: var(--accent-soft); color: var(--accent);
   }
   .featured { border-left: 3px solid var(--accent); }
+  .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 600; }
+  .links a.primary:hover { color: var(--bg); opacity: 0.9; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 16px; }
+  .timeline .when { color: var(--muted); font-size: 0.85rem; padding-top: 3px; }
+  .timeline .body { position: relative; border-left: 2px solid var(--line); padding: 0 0 28px 22px; }
+  .timeline li:last-child .body { padding-bottom: 0; }
+  .timeline .body::before {
+    content: ""; position: absolute; left: -7px; top: 5px; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--bg); border: 2px solid var(--accent);
+  }
+  .timeline h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .timeline h3 span { color: var(--accent); font-weight: 400; }
+  .timeline p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
+
+  .shot { display: block; width: 100%; height: auto; max-height: 240px; object-fit: cover; object-position: top left; border-radius: 6px; border: 1px solid var(--line); margin: 0 0 14px; }
+  .diagram { display: block; width: 100%; height: auto; margin: 0 0 14px; }
+  .diagram rect { fill: var(--bg); stroke: var(--line); }
+  .diagram .bus { fill: var(--accent-soft); stroke: var(--accent); }
+  .diagram text { fill: var(--text); font: 12px Inter, system-ui, sans-serif; }
+  .diagram .bus-label { fill: var(--accent); font-weight: 600; }
+  .diagram path { stroke: var(--muted); fill: none; }
+  .diagram .async { stroke: var(--accent); stroke-dasharray: 4 3; }
 
 
   .skills { display: grid; gap: 10px; margin: 0; }
@@ -74,6 +98,8 @@
     main { padding-top: 48px; }
     header h1 { font-size: 2rem; }
     .skills div { grid-template-columns: 1fr; gap: 4px; }
+    .timeline li { grid-template-columns: 1fr; gap: 4px; }
+    .timeline .when { padding-left: 24px; }
   }
 </style>
 </head>
@@ -82,8 +108,9 @@
   <header>
     <h1>Ngo Xuan Chien</h1>
     <p class="role mono">Backend Software Engineer at HDBank</p>
-    <p>I build backend systems with Java, Spring Boot and Go, mostly microservices with Kafka, gRPC, PostgreSQL and Redis. In my spare time I also write native macOS apps in Swift.</p>
+    <p>I build core banking systems at HDBank: term deposits, interest calculation and End-of-Day batch jobs on Thought Machine Vault Core, with Java, Spring Boot and Kafka. Outside work I build distributed systems in Go, and native macOS apps in Swift.</p>
     <ul class="links">
+      <li><a class="primary" href="NgoXuanChien_CV.pdf" download>Download CV</a></li>
       <li><a href="https://github.com/ngoxuanchien">GitHub</a></li>
       <li><a href="https://www.linkedin.com/in/chien-ngo-xuan-513b2817b/">LinkedIn</a></li>
       <li><a href="mailto:ngoxuanchien9a@gmail.com">Email</a></li>
@@ -92,23 +119,32 @@
 
   <section aria-labelledby="experience">
     <h2 id="experience">Experience</h2>
-    <div class="projects">
-      <div class="card featured">
-        <h3>Software Engineer, HDBank <span>/ Feb 2025 – present</span></h3>
-        <p>Core Banking Modernization on Thought Machine Vault Core, Deposit team. I build term deposit products: the account lifecycle, interest calculation and End-of-Day batch jobs.</p>
-        <div class="tags mono"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Redis</span><span>Kafka</span></div>
-      </div>
-      <div class="card">
-        <h3>Trainee, HDBank <span>/ Aug – Nov 2024</span></h3>
-        <p>Built a notification service that turns core banking error events from Kafka into Email and Telegram alerts, instrumented with OpenTelemetry.</p>
-        <div class="tags mono"><span>Spring Boot</span><span>Spring Modulith</span><span>Kafka</span><span>OpenTelemetry</span></div>
-      </div>
-      <div class="card">
-        <h3>Developer Intern, DEK Technologies <span>/ Jun – Aug 2023</span></h3>
-        <p>Developed an Android app for voice calls, video calls and messaging over the IP Multimedia Subsystem (IMS), and set up Jenkins to run its automated tests.</p>
-        <div class="tags mono"><span>Android</span><span>Java</span><span>IMS</span><span>Jenkins</span></div>
-      </div>
-    </div>
+    <ol class="timeline">
+      <li>
+        <div class="when mono">Feb 2025 – present</div>
+        <div class="body">
+          <h3>Software Engineer <span>/ HDBank</span></h3>
+          <p>Core Banking Modernization on Thought Machine Vault Core, Deposit team. I build term deposit products: the account lifecycle, interest calculation and End-of-Day batch jobs.</p>
+          <div class="tags mono"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Redis</span><span>Kafka</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="when mono">Aug – Nov 2024</div>
+        <div class="body">
+          <h3>Trainee <span>/ HDBank</span></h3>
+          <p>Built a notification service that turns core banking error events from Kafka into Email and Telegram alerts, instrumented with OpenTelemetry.</p>
+          <div class="tags mono"><span>Spring Boot</span><span>Spring Modulith</span><span>Kafka</span><span>OpenTelemetry</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="when mono">Jun – Aug 2023</div>
+        <div class="body">
+          <h3>Developer Intern <span>/ DEK Technologies</span></h3>
+          <p>Developed an Android app for voice calls, video calls and messaging over the IP Multimedia Subsystem (IMS), and set up Jenkins to run its automated tests.</p>
+          <div class="tags mono"><span>Android</span><span>Java</span><span>IMS</span><span>Jenkins</span></div>
+        </div>
+      </li>
+    </ol>
   </section>
 
   <section aria-labelledby="projects">
@@ -116,7 +152,14 @@
     <div class="projects">
       <a class="card featured" href="https://github.com/ngoxuanchien/E-Commerce">
         <h3>E-Commerce <span>/ multi-vendor marketplace</span></h3>
-        <p>Shopee-style marketplace: buyers check out from several shops at once, and the cart is split into one order per shop. Includes escrow payments through VNPay and Stripe, seller wallets and payouts, Vietnamese search that works with or without diacritics, and stock that never oversells under concurrent checkouts.</p>
+        <svg class="diagram" viewBox="0 0 540 200" role="img" aria-label="Architecture: React web app to API gateway, five Go services over gRPC, events through Kafka">
+          <rect x="10" y="86" width="100" height="28" rx="5"/><text x="60" y="104" text-anchor="middle">React web</text>
+          <path d="M110 100 H160"/>
+          <rect x="160" y="86" width="100" height="28" rx="5"/><text x="210" y="104" text-anchor="middle">gateway</text>
+          <rect x="290" y="12" width="120" height="28" rx="5"/><text x="350" y="30" text-anchor="middle">identity</text><path d="M260 100 C275 100 275 26 290 26"/><path class="async" d="M410 26 H460"/><rect x="290" y="48" width="120" height="28" rx="5"/><text x="350" y="66" text-anchor="middle">catalog</text><path d="M260 100 C275 100 275 62 290 62"/><path class="async" d="M410 62 H460"/><rect x="290" y="84" width="120" height="28" rx="5"/><text x="350" y="102" text-anchor="middle">order</text><path d="M260 100 C275 100 275 98 290 98"/><path class="async" d="M410 98 H460"/><rect x="290" y="120" width="120" height="28" rx="5"/><text x="350" y="138" text-anchor="middle">payment</text><path d="M260 100 C275 100 275 134 290 134"/><path class="async" d="M410 134 H460"/><rect x="290" y="156" width="120" height="28" rx="5"/><text x="350" y="174" text-anchor="middle">ledger</text><path d="M260 100 C275 100 275 170 290 170"/><path class="async" d="M410 170 H460"/>
+          <rect class="bus" x="460" y="12" width="70" height="172" rx="5"/><text class="bus-label" x="495" y="104" text-anchor="middle">Kafka</text>
+        </svg>
+                <p>Shopee-style marketplace: buyers check out from several shops at once, and the cart is split into one order per shop. Includes escrow payments through VNPay and Stripe, seller wallets and payouts, Vietnamese search that works with or without diacritics, and stock that never oversells under concurrent checkouts.</p>
         <div class="tags mono"><span>Go</span><span>gRPC</span><span>Kafka</span><span>PostgreSQL</span><span>React</span><span>Jaeger</span></div>
       </a>
       <a class="card featured" href="https://github.com/ngoxuanchien/ZingMp3">
@@ -126,6 +169,7 @@
       </a>
       <a class="card" href="https://github.com/ngoxuanchien/Gom">
         <h3>Gom <span>/ macOS download manager</span></h3>
+        <img class="shot" src="assets/gom.jpg" width="1200" height="600" loading="lazy" alt="Gom window with a folder sidebar and a list of downloads">
         <p>Download manager with multi-connection downloads, pause/resume, scheduling and speed limits. A browser extension sends downloads to the app.</p>
         <div class="tags mono"><span>Swift</span><span>SwiftUI</span><span>JavaScript</span></div>
       </a>
@@ -147,10 +191,14 @@
   <section aria-labelledby="skills">
     <h2 id="skills">Skills</h2>
     <dl class="skills">
-      <div><dt class="mono">Languages</dt><dd>Java, Go, Swift, TypeScript</dd></div>
-      <div><dt class="mono">Backend</dt><dd>Spring Boot, Spring Cloud, gRPC, Kafka</dd></div>
-      <div><dt class="mono">Data</dt><dd>PostgreSQL, Redis</dd></div>
-      <div><dt class="mono">Infra</dt><dd>Docker, Jenkins</dd></div>
+      <div><dt class="mono">Languages</dt><dd>Java, Go, Swift, TypeScript, Python, C++</dd></div>
+      <div><dt class="mono">Backend</dt><dd>Spring Boot, Spring Cloud, Spring Modulith, gRPC, REST, Keycloak</dd></div>
+      <div><dt class="mono">Data &amp; messaging</dt><dd>PostgreSQL, Redis, Kafka, Kafka Streams</dd></div>
+      <div><dt class="mono">Infra</dt><dd>Docker, Kubernetes, Jenkins, GitHub Actions</dd></div>
+      <div><dt class="mono">Observability</dt><dd>OpenTelemetry, Prometheus, Grafana, Loki, Tempo, Jaeger</dd></div>
+      <div><dt class="mono">Testing</dt><dd>Unit and integration tests, Testcontainers, Playwright</dd></div>
+      <div><dt class="mono">Architecture</dt><dd>Microservices, event-driven design, CQRS, event sourcing, transactional outbox, hexagonal</dd></div>
+      <div><dt class="mono">Domain</dt><dd>Core banking, term deposits, interest calculation, EOD batch processing</dd></div>
     </dl>
   </section>
 
