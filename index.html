@@ -62,12 +62,6 @@
   }
   .featured { border-left: 3px solid var(--accent); }
 
-  .entry { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
-  .entry:first-of-type { border-top: 0; padding-top: 0; }
-  .entry .when { color: var(--muted); font-size: 0.85rem; padding-top: 2px; }
-  .entry h3 { margin: 0; font-size: 1rem; }
-  .entry h3 small { color: var(--muted); font-weight: 400; font-size: 0.95rem; }
-  .entry ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: 0.95rem; }
 
   .skills { display: grid; gap: 10px; margin: 0; }
   .skills div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; }
@@ -79,7 +73,7 @@
   @media (max-width: 560px) {
     main { padding-top: 48px; }
     header h1 { font-size: 2rem; }
-    .entry, .skills div { grid-template-columns: 1fr; gap: 4px; }
+    .skills div { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
 </head>
@@ -87,11 +81,10 @@
 <main>
   <header>
     <h1>Ngo Xuan Chien</h1>
-    <p class="role mono">Backend Developer · Ho Chi Minh City</p>
+    <p class="role mono">Backend Developer</p>
     <p>I build backend systems with Java, Spring Boot and Go, mostly microservices with Kafka, gRPC, PostgreSQL and Redis. In my spare time I also write native macOS apps in Swift.</p>
     <ul class="links">
       <li><a href="https://github.com/ngoxuanchien">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/chien-ngo-xuan-513b2817b/">LinkedIn</a></li>
       <li><a href="mailto:ngoxuanchien9a@gmail.com">Email</a></li>
     </ul>
   </header>
@@ -127,43 +120,7 @@
     </div>
   </section>
 
-  <section aria-labelledby="experience">
-    <h2 id="experience">Experience</h2>
-    <div class="entry">
-      <div class="when mono">Jun 2025 – Now</div>
-      <div><h3>Software Engineer <small>· HDBank</small></h3></div>
-    </div>
-    <div class="entry">
-      <div class="when mono">Aug – Nov 2024</div>
-      <div>
-        <h3>Learner to Master Program <small>· HDBank</small></h3>
-        <ul>
-          <li>Explored Thought Machine's Vault Core for digital core banking.</li>
-          <li>Learned how to design and run logs, traces and metrics in production.</li>
-          <li>Built a Spring Boot notification service that sends system error events by Email, Telegram and Kafka.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="entry">
-      <div class="when mono">Jun – Aug 2023</div>
-      <div>
-        <h3>Developer Intern <small>· DEK Technologies</small></h3>
-        <ul>
-          <li>Built an Android app for voice calls, video calls and messaging over IMS.</li>
-          <li>Set up Jenkins to run the app's automated tests.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <section aria-labelledby="education">
-    <h2 id="education">Education</h2>
-    <div class="entry">
-      <div class="when mono">2020 – 2024</div>
-      <div><h3>B.Sc. Information Technology <small>· VNUHCM University of Science</small></h3>
-        <ul><li>GPA 8.0 / 10</li></ul></div>
-    </div>
-  </section>
 
   <section aria-labelledby="skills">
     <h2 id="skills">Skills</h2>
@@ -171,7 +128,7 @@
       <div><dt class="mono">Languages</dt><dd>Java, Go, Swift, TypeScript</dd></div>
       <div><dt class="mono">Backend</dt><dd>Spring Boot, Spring Cloud, gRPC, Kafka</dd></div>
       <div><dt class="mono">Data</dt><dd>PostgreSQL, Redis</dd></div>
-      <div><dt class="mono">Infra</dt><dd>Docker, Kubernetes, Jenkins</dd></div>
+      <div><dt class="mono">Infra</dt><dd>Docker, Jenkins</dd></div>
     </dl>
   </section>
 
