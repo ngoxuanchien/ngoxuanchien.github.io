@@ -22,13 +22,13 @@ jobs:
       - name: Build CV
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex
+          root_file: NgoXuanChien_Resume.tex
           working_directory: cv
       - name: Assemble site
         run: |
           mkdir _site
           cp -r index.html assets _site/
-          cp cv/resume.pdf _site/NgoXuanChien_CV.pdf
+          cp cv/NgoXuanChien_Resume.pdf _site/NgoXuanChien_CV.pdf
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
