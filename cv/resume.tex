@@ -8,22 +8,22 @@
 \setlist[itemize]{topsep=-3pt, itemsep=1pt, parsep=0pt, partopsep=0pt, after=\vspace{3pt}} % One bullet spacing for every entry
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\name{Ngo Xuan Chien} % Your name
-\address{{\large Backend Software Engineer}}
-\address{
-    Ho Chi Minh City, Vietnam \\
-    +84 963 441 360 \\
-    ngoxuanchien9a@gmail.com
-}
-\address{
-    \href{https://github.com/ngoxuanchien}{github.com/ngoxuanchien} \\
-    \href{https://ngoxuanchien.github.io}{ngoxuanchien.github.io} \\
-    \href{https://www.linkedin.com/in/chien-ngo-xuan-513b2817b/}{linkedin.com/in/chien-ngo-xuan-513b2817b}
-}
+\makeatletter\def\printname{}\makeatother % Header is drawn below instead
 
 \begin{document}
 \raggedright % No stretched spaces
 \hyphenpenalty=10000 % No hyphenated keywords (ATS)
+
+%----------------------------------------------------------------------------------------
+%	HEADER: single column, left-aligned (ATS reads it top to bottom)
+%----------------------------------------------------------------------------------------
+
+\noindent
+{\LARGE\bf NGO XUAN CHIEN} \\[6pt]
+{\large Backend Software Engineer} \\[4pt]
+Ho Chi Minh City, Vietnam \textbar{} +84 963 441 360 \textbar{} \href{mailto:ngoxuanchien9a@gmail.com}{ngoxuanchien9a@gmail.com} \\
+\href{https://github.com/ngoxuanchien}{github.com/ngoxuanchien} \textbar{} \href{https://www.linkedin.com/in/chien-ngo-xuan-513b2817b/}{linkedin.com/in/chien-ngo-xuan-513b2817b} \\
+Portfolio: \href{https://ngoxuanchien.github.io}{ngoxuanchien.github.io}
 
 %----------------------------------------------------------------------------------------
 %	SUMMARY SECTION
