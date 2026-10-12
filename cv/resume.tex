@@ -1,0 +1,118 @@
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\usepackage{hyperref}
+\usepackage{needspace}
+\input{glyphtounicode} % Clean PDF text extraction for ATS parsers
+\pdfgentounicode=1
+\setlist[itemize]{topsep=-3pt, itemsep=1pt, parsep=0pt, partopsep=0pt, after=\vspace{3pt}} % One bullet spacing for every entry
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Ngo Xuan Chien} % Your name
+\address{{\large Backend Software Engineer}}
+\address{
+    Ho Chi Minh City, Vietnam \\
+    +84 963 441 360 \\
+    ngoxuanchien9a@gmail.com
+}
+\address{
+    \href{https://github.com/ngoxuanchien}{github.com/ngoxuanchien} \\
+    \href{https://ngoxuanchien.github.io}{ngoxuanchien.github.io} \\
+    \href{https://www.linkedin.com/in/chien-ngo-xuan-513b2817b/}{linkedin.com/in/chien-ngo-xuan-513b2817b}
+}
+
+\begin{document}
+\raggedright % No stretched spaces
+\hyphenpenalty=10000 % No hyphenated keywords (ATS)
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Summary}
+    Backend Software Engineer with 1.5+ years building core banking deposit products at HDBank on Thought Machine Vault Core. Works daily with Java, Spring Boot, Kafka, PostgreSQL and Redis, including End-of-Day batch jobs for 100,000+ deposit accounts and the go-live migration from the legacy core. Also builds microservices in Go with gRPC, event-driven design and observability.
+\end{rSection}
+
+\begin{rSection}{Work Experience}
+
+    {\bf Software Engineer - HDBank} \hfill {\em Feb 2025 - Present}
+    \\ Project: Core Banking Modernization (Thought Machine Vault Core) - Deposit team of 6
+
+    \begin{itemize}
+        \item Develop term deposit (savings) products with the Deposit team, covering the full account lifecycle: opening, top-ups, partial and early withdrawal, maturity settlement and rollover, holds, joint holders and holiday maturity, using Java, Spring Boot, PostgreSQL, Redis and Kafka.
+        \item Own the automatic savings product end to end as its sole developer: scheduled debits from a customer's current account, each opening a new term deposit, through to maturity and rollover.
+        \item Develop and maintain End-of-Day (EOD) batch jobs that accrue interest and settle maturities for 100,000+ deposit accounts daily, where every calculation must reconcile exactly.
+        \item Took part in the go-live migration from the legacy Symbols core banking system, configuring interest rate tables, savings products and automatic savings accounts.
+        \item Own interest calculation in production: periodic, upfront and at-maturity payouts, tiered and promotional rates, early-withdrawal interest, expense accrual, and day-count and rounding rules.
+    \end{itemize}
+
+    {\bf Trainee (Learner to Master Program) - HDBank} \hfill {\em Aug 2024 - Nov 2024}
+
+    \begin{itemize}
+        \item Built a Notification Service in Spring Boot (Java 21, virtual threads, hexagonal architecture, Spring Modulith) that consumes core banking error events from Kafka, routes them by type (transfers, postings, settlements), stores them in PostgreSQL with Redis caching, and alerts via Email, Telegram and Kafka topics.
+        \item Instrumented the service with OpenTelemetry, shipping logs, metrics and traces to Prometheus, Grafana, Loki, Tempo, Jaeger and Zipkin; worked hands-on with Kubernetes, Docker and Kafka Streams.
+    \end{itemize}
+
+    {\bf Developer Intern - DEK Technologies} \hfill {\em Jun 2023 - Aug 2023}
+
+    \begin{itemize}
+        \item Developed an Android application for voice calls, video calls and messaging over the IP Multimedia Subsystem (IMS).
+        \item Set up Jenkins to run automated tests for the application.
+    \end{itemize}
+
+\end{rSection}
+%--------------------------------------------------------------------------------
+%    Projects And Seminars
+%-----------------------------------------------------------------------------------------------
+\begin{rSection}{Projects}
+    {\bf \href{https://github.com/ngoxuanchien/E-Commerce}{Multi-vendor Marketplace} - Go, gRPC, Kafka, PostgreSQL, React} \hfill {\em Sep 2026 - Present}
+
+    \begin{itemize}
+        \item Design and build a Shopee-style marketplace of 6 Go microservices (identity, catalog, order, payment, ledger, gateway): REST at the edge, gRPC between services, one database per service.
+        \item Implement multi-shop checkout that splits a cart into one order per shop, idempotent and oversell-safe under concurrent requests; events are published to Kafka via a transactional outbox.
+        \item Integrate VNPay/Stripe sandbox payments with escrow, a double-entry ledger, seller wallets and payouts; secured with RS256 JWT, traced with OpenTelemetry and Jaeger, and tested in CI with Testcontainers and Playwright.
+        \item Handle payment failure paths: a reconciler recovers dropped webhooks, and a refund worker reverses cancelled and duplicate payments.
+    \end{itemize}
+
+    \needspace{4\baselineskip} % Keep the heading with its bullets
+    {\bf \href{https://github.com/ngoxuanchien/ZingMp3}{ZingMp3 Backend} - Java, Spring Boot, Kafka, Keycloak, Docker} \hfill {\em Apr 2024 - May 2024}
+
+    \begin{itemize}
+        \item Built a RESTful API for music, albums and playlists as microservices behind an API Gateway with Eureka service discovery.
+        \item Applied CQRS and Event Sourcing with Apache Kafka, splitting each domain service into a core module and an event-handler module.
+        \item Secured APIs with Keycloak; containerized the stack with Docker Compose and automated builds with a Jenkins pipeline.
+    \end{itemize}
+
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Technical Skills}
+    \begin{itemize}[label={}, leftmargin=1.5em, itemindent=-1.5em, itemsep=0pt, topsep=0pt] % Hanging indent for wrapped lines
+        \item {\bf Languages:} Java, Go, C++, Python, JavaScript/TypeScript
+        \item {\bf Frameworks:} Spring Boot, Spring Cloud (Gateway, Eureka), Keycloak, ReactJS
+        \item {\bf Data \& Messaging:} PostgreSQL, Redis, Kafka, Kafka Streams
+        \item {\bf DevOps \& Observability:} Docker, Kubernetes, Jenkins, Git, Maven, Linux, OpenTelemetry, Prometheus, Grafana, Loki, Tempo, Jaeger, Zipkin
+        \item {\bf Banking Domain:} Core Banking, Thought Machine Vault Core, Term Deposits, Interest Calculation, EOD Batch Processing
+        \item {\bf Concepts:} Microservices, Spring Modulith, Hexagonal Architecture, Event-Driven Architecture, CQRS, Event Sourcing, Transactional Outbox, REST, gRPC
+        \item {\bf Testing:} Unit Testing, Integration Testing (Testcontainers), E2E Testing (Playwright)
+    \end{itemize}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+    {\bf Ho Chi Minh University of Science - HCMUS} \hfill {\em 2020 - 2024}
+    \\ Bachelor of Science in Information Technology \hfill GPA: 8.0/10
+    \\ English: VSTEP B1 (CEFR B1)
+
+\end{rSection}
+
+\begin{rSection}{Achievements}
+    Consolation Prize, Vietnam National Olympiad in Informatics (VOI), school year 2018 - 2019.
+\end{rSection}
+\end{document}
