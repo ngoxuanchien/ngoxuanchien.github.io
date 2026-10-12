@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir _site
           cp -r index.html assets _site/
-          cp cv/NgoXuanChien_Resume.pdf _site/NgoXuanChien_CV.pdf
+          cp cv/NgoXuanChien_Resume.pdf _site/NgoXuanChien_Resume.pdf
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
